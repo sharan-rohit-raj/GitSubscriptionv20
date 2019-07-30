@@ -67,7 +67,7 @@ public class AddCustomer extends AppCompatActivity {
 
         //TransferValues();
        // member = new Member();
-        reff = FirebaseDatabase.getInstance().getReference();
+        reff = FirebaseDatabase.getInstance().getReference("customers");
 
         Toast.makeText(this, "Firebase connection Success !! Your good to go !!", Toast.LENGTH_SHORT).show();
 
@@ -94,9 +94,9 @@ public class AddCustomer extends AppCompatActivity {
                 packagetype = packageT.getText().toString();
 
              String id = reff.push().getKey();
-             member = new Member(cname, startofsub, endofsub, totalamt, packagetype, mac_id);
-                Toast.makeText(AddCustomer.this, id, Toast.LENGTH_SHORT).show();
+             member = new Member(cname, startofsub, endofsub, totalamt, packagetype, mac_id, typeofpay, storePaidoptn);
             reff.child(id).setValue(member);
+             Toast.makeText(AddCustomer.this, "Customer info successfully saved !", Toast.LENGTH_SHORT).show();
 
 
             }

@@ -1,24 +1,28 @@
 package com.example.subscriptionv20;
 
 public class Member {
-    private String name;
-    private String Startsub;
-    private String Endsub;
-    private String Totalamt;
-    private String pkgtype;
-    private String MACid;
+     String name;
+     String Startsub;
+     String Endsub;
+     String Totalamt;
+     String pkgtype;
+     String MACid;
+     String paymentmethod;
+     String paymentoption;
 
     public Member(){
 
     }
 
-    public Member(String name,String startsub, String endsub, String totalamt, String pkgtype, String macid){
+    public Member(String name,String startsub, String endsub, String totalamt, String pkgtype, String macid,String paymentmethod,String paymentoption){
         this.name = name;
         this.Startsub = startsub;
         this.Endsub = endsub;
         this.Totalamt = totalamt;
         this.pkgtype = pkgtype;
         this.MACid = macid;
+        this.paymentmethod = paymentmethod;
+        this.paymentoption = paymentoption;
     }
 
     public String Getname(){

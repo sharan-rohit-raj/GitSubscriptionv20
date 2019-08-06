@@ -1,5 +1,6 @@
 package com.example.subscriptionv20;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -11,8 +12,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AddCustomer extends AppCompatActivity {
     ImageButton send;
@@ -41,6 +45,7 @@ public class AddCustomer extends AppCompatActivity {
     String packagetype ;
     String storePaidoptn;
     String typeofpay;
+    FirebaseDatabase mFirebaseDatabase;
     DatabaseReference reff;
     Member member;
 
@@ -67,7 +72,8 @@ public class AddCustomer extends AppCompatActivity {
 
         //TransferValues();
        // member = new Member();
-        reff = FirebaseDatabase.getInstance().getReference("customers");
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        reff = mFirebaseDatabase.getReference("customers");
 
         Toast.makeText(this, "Firebase connection Success !! Your good to go !!", Toast.LENGTH_SHORT).show();
 
@@ -95,8 +101,31 @@ public class AddCustomer extends AppCompatActivity {
 
              String id = reff.push().getKey();
              member = new Member(cname, startofsub, endofsub, totalamt, packagetype, mac_id, typeofpay, storePaidoptn);
-            reff.child(id).setValue(member);
+               /* member = new ViewMember();
+                member.setName(cname);
+                member.setEndsub(endofsub);
+                member.setStartsub(startofsub);
+                member.setTotalamt(totalamt);
+                member.setPkgtype(packagetype);
+                member.setMACid(mac_id);
+                member.setPaymentoption(storePaidoptn);
+                member.setPaymentmethod(typeofpay);*/
+
+
+            reff.child(mac_id).setValue(member);
              Toast.makeText(AddCustomer.this, "Customer info successfully saved !", Toast.LENGTH_SHORT).show();
+
+         /*  reff.addValueEventListener(new ValueEventListener() {
+               @Override
+               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+               }
+
+               @Override
+               public void onCancelled(@NonNull DatabaseError databaseError) {
+
+               }
+           })*/
 
 
             }

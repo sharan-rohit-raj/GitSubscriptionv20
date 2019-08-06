@@ -29,45 +29,56 @@ public class Member {
         return name;
     }
 
-   // public void Setname(String Name){
-    //    name = Name;
-  //  }
+    public void Setname(String Name){
+        this.name = Name;
+    }
     public String GetStartsub(){
         return Startsub;
     }
 
-   /* public void SetStarsub(String startsub){
-        Startsub = startsub;
-    }*/
+    public void SetStarsub(String startsub){
+        this.Startsub = startsub;
+    }
 
     public String GetEndsub(){
         return Endsub;
     }
 
-  /*  public void SetEndsub(String endsub){
-        Endsub = endsub;
-    }*/
+   public void SetEndsub(String endsub){
+        this.Endsub = endsub;
+    }
     public String GetTotalamt(){
         return Totalamt;
     }
 
-   /* public void SetToalamt(String totalamt){
-        Totalamt = totalamt;
-    }*/
+    public void SetToalamt(String totalamt){
+        this.Totalamt = totalamt;
+    }
     public String Getpkgtype(){
         return pkgtype;
     }
 
-   /* public void Setpkgtype(String Pkgtype){
-        pkgtype = Pkgtype;
-    }*/
+   public void Setpkgtype(String Pkgtype){
+        this.pkgtype = Pkgtype;
+    }
     public String GetMACid(){
         return MACid;
     }
 
-    /*public void SetMACid(String macid){
-        MACid = macid;
+    public void SetMACid(String macid){
+        this.MACid = macid;
     }
-    */
+    public String GetPaymentMethod(){
+        return paymentmethod;
+    }
+    public void SetPaymentMethod(String Paymentmethod){
+        this.paymentmethod = Paymentmethod;
+    }
+    public String GetPaymentOption(){
+        return paymentoption;
+    }
+    public void SetPaymentOption(String PaymentOption){
+        this.paymentoption = PaymentOption;
+    }
 
 }
